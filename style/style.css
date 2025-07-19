@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pacifico', cursive;
+    user-select: none;
+}
+
+:root {
+    --clr: rgb(255, 0, 174);
+}
+
+body {
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.cloud {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    z-index: 100;
+    filter: drop-shadow(0 0 35px var(--clr));
+}
+
+.cloud img {
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    pointer-events: none;
+}
+
+.cloud h2 {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: var(--clr);
+    border: 2px solid #fff3;
+    box-shadow: 0 0 4px var(--clr), 0 0 10px var(--clr);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+.cloud h2 span {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll-left 20s linear infinite;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 2px #fff, 0 0 4px var(--clr);
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+.cloud .drop {
+    position: absolute;
+    top: 160px;
+    height: 20px;
+    line-height: 20px;
+    color: var(--clr);
+    transform-origin: bottom;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+    transform: translateY(0) scaleY(0);
+    transform-origin: top;
+    }
+    10% {
+    transform: translateY(0) scaleY(0.25);
+    transform-origin: top;
+    }
+    20% {
+    transform: translateY(0) scaleY(1);
+    }
+    70% {
+    transform: translateY(300px) scaleY(1);
+    transform-origin: bottom;
+    }
+    80% {
+    transform: translateY(300px) scaleY(1);
+    transform-origin: bottom;
+    }
+    100% {
+    transform: translateY(300px) scaleY(0);
+    transform-origin: bottom;
+    text-shadow: -180px 0 0 var(--clr), 180px 0 0 var(--clr);
+    }
+}
